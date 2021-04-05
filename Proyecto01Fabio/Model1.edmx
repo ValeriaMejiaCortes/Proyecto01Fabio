@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Proyecto01FabioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="STUDENT">
+          <Key>
+            <PropertyRef Name="idStudent" />
+          </Key>
+          <Property Name="idStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeDocumentStudent" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="documentStudent" Type="int" Nullable="false" />
+          <Property Name="codeStudent" Type="int" Nullable="false" />
+          <Property Name="nameStudent" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="lastNameStudent" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="genderStudent" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="emailStudent" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="phoneStudent" Type="int" Nullable="false" />
+        </EntityType>
+        <Function Name="proc_InsertStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="typeDocumentStudent" Type="varchar" Mode="In" />
+          <Parameter Name="documentStudent" Type="int" Mode="In" />
+          <Parameter Name="codeStudent" Type="int" Mode="In" />
+          <Parameter Name="nameStudent" Type="varchar" Mode="In" />
+          <Parameter Name="lastNameStudent" Type="varchar" Mode="In" />
+          <Parameter Name="genderStudent" Type="varchar" Mode="In" />
+          <Parameter Name="emailStudent" Type="varchar" Mode="In" />
+          <Parameter Name="phoneStudent" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Proyecto01FabioModelStoreContainer">
+          <EntitySet Name="STUDENT" EntityType="Self.STUDENT" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Proyecto01FabioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="STUDENT">
+          <Key>
+            <PropertyRef Name="idStudent" />
+          </Key>
+          <Property Name="idStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeDocumentStudent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="documentStudent" Type="Int32" Nullable="false" />
+          <Property Name="codeStudent" Type="Int32" Nullable="false" />
+          <Property Name="nameStudent" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastNameStudent" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genderStudent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailStudent" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneStudent" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Proyecto01FabioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="STUDENT" EntityType="Self.STUDENT" />
+          <FunctionImport Name="proc_InsertStudent">
+            <Parameter Name="typeDocumentStudent" Mode="In" Type="String" />
+            <Parameter Name="documentStudent" Mode="In" Type="Int32" />
+            <Parameter Name="codeStudent" Mode="In" Type="Int32" />
+            <Parameter Name="nameStudent" Mode="In" Type="String" />
+            <Parameter Name="lastNameStudent" Mode="In" Type="String" />
+            <Parameter Name="genderStudent" Mode="In" Type="String" />
+            <Parameter Name="emailStudent" Mode="In" Type="String" />
+            <Parameter Name="phoneStudent" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Proyecto01FabioModelStoreContainer" CdmEntityContainer="Proyecto01FabioEntities">
+          <EntitySetMapping Name="STUDENT">
+            <EntityTypeMapping TypeName="Proyecto01FabioModel.STUDENT">
+              <MappingFragment StoreEntitySet="STUDENT">
+                <ScalarProperty Name="idStudent" ColumnName="idStudent" />
+                <ScalarProperty Name="typeDocumentStudent" ColumnName="typeDocumentStudent" />
+                <ScalarProperty Name="documentStudent" ColumnName="documentStudent" />
+                <ScalarProperty Name="codeStudent" ColumnName="codeStudent" />
+                <ScalarProperty Name="nameStudent" ColumnName="nameStudent" />
+                <ScalarProperty Name="lastNameStudent" ColumnName="lastNameStudent" />
+                <ScalarProperty Name="genderStudent" ColumnName="genderStudent" />
+                <ScalarProperty Name="emailStudent" ColumnName="emailStudent" />
+                <ScalarProperty Name="phoneStudent" ColumnName="phoneStudent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="proc_InsertStudent" FunctionName="Proyecto01FabioModel.Store.proc_InsertStudent" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
