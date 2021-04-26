@@ -19,7 +19,7 @@
             @Html.LabelFor(model => model.typeDocumentStudent, htmlAttributes: new { @class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.EditorFor(model => model.typeDocumentStudent, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.typeDocumentStudent, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.typeDocumentStudent, "", new { @class = "text-danger error" })
             </div>
         </div>
 
@@ -94,3 +94,8 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script type="text/javascript">$(function() {
+            $(".field-validation-error").html("");
+            $(".field-validation-error").parent().find(".k-editable-area,iframe").addClass("input-validation-error");
+        });</script>

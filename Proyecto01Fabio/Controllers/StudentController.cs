@@ -50,7 +50,7 @@ namespace Proyecto01Fabio.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.STUDENT.Add(sTUDENT);
+                db.proc_InsertStudent(sTUDENT.typeDocumentStudent,sTUDENT.documentStudent,sTUDENT.codeStudent,sTUDENT.nameStudent,sTUDENT.lastNameStudent,sTUDENT.genderStudent,sTUDENT.emailStudent,sTUDENT.phoneStudent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
